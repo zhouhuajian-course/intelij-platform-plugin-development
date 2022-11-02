@@ -1,17 +1,16 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <id>funit</id>
+  <name>funit</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="zhouhuajian@company.com" url="http://www.zhouhuajian.com">HuaJian Company</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      这个插件可以翻译选中的单词，还可以加其他HTML标签，需要最少40个字符<br>
+      作者：zhouhuajian
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      第一版：实现可以翻译选中的单词
     ]]>
   </change-notes>
 
@@ -28,6 +27,9 @@
 
   <actions>
     <!-- Add your actions here -->
+    <action id="funit" class="funit.action.TranslateAction" text="翻译" description="可以翻译选中的单词。">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </action>
   </actions>
 
 </idea-plugin>

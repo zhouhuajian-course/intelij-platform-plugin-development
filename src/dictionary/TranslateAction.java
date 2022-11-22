@@ -1,4 +1,4 @@
-package funit.action;
+package dictionary;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -10,11 +10,14 @@ public class TranslateAction extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        // TODO: insert action logic here
+
         // System.out.println("just a test");
+        // 获取用户在编辑器选中的文本
         Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
         SelectionModel selectionModel = editor.getSelectionModel();
         String selectedText = selectionModel.getSelectedText();
         // System.out.println(selectedText);
+
     }
+
 }

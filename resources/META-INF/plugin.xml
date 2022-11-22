@@ -1,35 +1,63 @@
 <idea-plugin>
-  <id>funit</id>
-  <name>funit</name>
-  <version>1.0</version>
-  <vendor email="zhouhuajian@company.com" url="http://www.zhouhuajian.com">HuaJian Company</vendor>
+    <id>a-test-id</id>
+    <name>a-test-name</name>
+    <version>1.0</version>
+    <vendor email="zhouhuajian@company.com" url="http://www.zhouhuajian.com/">HuaJian Company</vendor>
 
-  <description><![CDATA[
-      这个插件可以翻译选中的单词，还可以加其他HTML标签，需要最少40个字符<br>
-      作者：zhouhuajian
-    ]]></description>
+    <description>
+        <![CDATA[
+        这个插件可以翻译选中的单词，还可以加其他HTML标签，需要最少40个字符<br>
+        作者：zhouhuajian
+        ]]>
+    </description>
 
-  <change-notes><![CDATA[
-      第一版：实现可以翻译选中的单词
-    ]]>
-  </change-notes>
+    <change-notes>
+        <![CDATA[
+        第一版：实现可以翻译选中的单词
+        ]]>
+    </change-notes>
 
-  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="173.0"/>
+    <idea-version since-build="173.0"/>
 
-  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-       on how to target different products -->
-  <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.platform</depends>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-  </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Sample Calendar"
+                    secondary="true"
+                    icon="AllIcons.General.Modified"
+                    anchor="right"
+                    factoryClass="calendar.MyToolWindowFactory"/>
+        <toolWindow id="Translate"
+                    secondary="true"
+                    icon="/translate/translate.svg"
+                    anchor="right"
+                    factoryClass="translate.TranslateToolWindowFactory"/>
+    </extensions>
 
-  <actions>
-    <!-- Add your actions here -->
-    <action id="funit" class="funit.action.TranslateAction" text="翻译" description="可以翻译选中的单词。">
-      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-    </action>
-  </actions>
+    <actions>
+        <action id="dictionary"
+                class="dictionary.TranslateAction"
+                text="翻译" description="可以翻译选中的单词。">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="SearchWithBing"
+                class="search.SearchWithBing"
+                text="Search With Bing"
+                description="Search With Bing">
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="WebTranslateAction"
+                class="translate.WebTranslateAction"
+                text="网页翻译"
+                description="在编辑器中选中文本，右键点击网页翻译可以弹出浏览器进行单词翻译。">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="TranslateAction"
+                class="translate.TranslateAction"
+                text="翻译"
+                description="在编辑器中，选中文本，右键点击翻译，可以弹出工具栏进行翻译。">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
 
 </idea-plugin>

@@ -73,7 +73,7 @@ Please keep in mind that the IntelliJ Platform is a large project, and while we 
 
 ## 截图 
 
-![img.png](README/img.png)
+![01.png](README/01.png)
 
 ## Plugin Devkit 插件开发套件
 
@@ -91,3 +91,43 @@ com.intellij.idea.Main是程序的入口类
 ## 图标和图片
 
 https://plugins.jetbrains.com/docs/intellij/work-with-icons-and-images.html#png-format
+
+## JBR
+
+JetBrains产品自带的JDK，改自OpenJDK，考虑到商业版权，没使用Oracle JDK或其他JDK
+
+[JetBrains/JetBrainsRuntime: Runtime environment based on OpenJDK for running IntelliJ Platform-based products on Windows, macOS, and Linux (github.com)](https://github.com/JetBrains/JetBrainsRuntime)
+
+JetBrainsRuntime
+
+微调OpenJDK
+
+Oracle JDK vs OpenJDK
+
+![02.png](README/02.png)
+
+2020.1 及以上版本为：jbr 目录  
+2019.3.x 及以下版本为：jre32/64 目录
+
+## 开发插件的两种方式
+
++ 不使用依赖管理工具
++ 使用依赖管理工具 Gradle 语言可用 Java或Kotlin
+    + Github 模板
+    + New Project
+    
+## 启用断言
+
+D:\java\jdk-11.0.16\bin\java.exe -Xmx512m -Xms256m -ea
+
+https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-3B1CE181-CD30-4178-9602-230B800D4FAE
+
+-disableassertions[:[packagename]...|:classname] or -da[:[packagename]...|:classname]
+Disables assertions. By default, assertions are disabled in all packages and classes. 
+
+Java默认禁用断言，assert语句会被忽略，要启用断言，  
+需要添加JVM选项-enableassertions或-ea
+
+在其他项目中，可以使用Spring、JUnit等框架的Assert工具类来进行assert关键字的功能
+因为很有可能生产环境忘记开启断言
+也许可以启动前保证断言必须开启来解决忘记开启的问题

@@ -58,6 +58,13 @@
                 description="在编辑器中，选中文本，右键点击翻译，可以弹出工具栏进行翻译。">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
+        <action id="ReplaceAction"
+                class="replace.ReplaceAction"
+                text="Editor Replace Text"
+                description="替换，如果不满足条件，不会出现这个菜单项"
+                icon="/replace/sdk_16.svg">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
     </actions>
 
 </idea-plugin>

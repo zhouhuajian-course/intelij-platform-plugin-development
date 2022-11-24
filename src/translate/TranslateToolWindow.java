@@ -5,8 +5,7 @@ import com.intellij.util.io.URLUtil;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,8 +32,8 @@ public class TranslateToolWindow {
         panel.setLayout(new BorderLayout());
         formPanel.setLayout(new BorderLayout());
 
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        formPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        formPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
 
         formPanel.add(textField, BorderLayout.CENTER);
         formPanel.add(button, BorderLayout.EAST);
@@ -50,6 +49,15 @@ public class TranslateToolWindow {
             System.out.println(str.substring(from, to));
             label.setText("<html>" + str.substring(from, to) + "</html>");
         });
+
+        textField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyChar() == KeyEvent.VK_ENTER)
+                    button.doClick();
+            }
+        });
+
 
         return panel;
     }

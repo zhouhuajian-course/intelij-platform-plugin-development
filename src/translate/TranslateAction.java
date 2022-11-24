@@ -14,8 +14,10 @@ public class TranslateAction extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        String selectedText = e.getRequiredData(CommonDataKeys.EDITOR).getCaretModel().getCurrentCaret().getSelectedText();
-        ToolWindow toolWindow = ToolWindowManager.getInstance(e.getProject()).getToolWindow("Translate");
+        String selectedText = e.getRequiredData(CommonDataKeys.EDITOR)
+                .getCaretModel().getCurrentCaret().getSelectedText();
+        ToolWindow toolWindow = ToolWindowManager.getInstance(e.getProject())
+                .getToolWindow("Translate");
         TranslateToolWindow.textField.setText(selectedText);
         TranslateToolWindow.button.doClick();
         // System.out.println(Arrays.toString(TranslateToolWindow.panel.getComponents()));

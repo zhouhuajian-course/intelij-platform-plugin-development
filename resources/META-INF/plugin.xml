@@ -35,6 +35,39 @@
     </extensions>
 
     <actions>
+        <group text="网页搜索" popup="true" class="search.SearchActionGroup">
+            <add-to-group group-id="EditorPopupMenu"></add-to-group>
+            <action class="search.SearchWithBing" text="必应"></action>
+            <action class="search.SearchWithBaidu" text="百度"></action>
+        </group>
+        <group
+                id="org.intellij.sdk.action.GroupedActions"
+                text="Static Grouped Actions"
+                popup="true">
+            <add-to-group
+                    group-id="ToolsMenu"
+                    anchor="last"/>
+            <action
+                    class="test.TestAction"
+                    id="org.intellij.sdk.action.GroupPopDialogAction"
+                    text="A Group Action"
+                    description="SDK static grouped action example">
+            </action>
+        </group>
+
+
+        <group id="TestMenu" text="_TestMenu" description="xxx">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="TestAction1" class="test.TestAction" text="测试菜单" description="xxx"/>
+        </group>
+        <group id="TestSubMenu1" text="_TestSubMenu" description="xxx">
+            <add-to-group group-id="TestMenu" anchor="last"/>
+            <action id="TestSubAction1" class="test.TestAction" text="测试子菜单" description="xxx"/>
+            <action id="TestSubAction2" class="test.TestAction" text="测试子菜单2" description="xxx"/>
+        </group>
+        <group popup="true" class="test.TestActionGroup" id="test.TestActionGroup" text="在Web中搜索..." icon="AllIcons.Actions.Search" description="Quick search">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </group>
         <action id="dictionary"
                 class="dictionary.TranslateAction"
                 text="翻译" description="可以翻译选中的单词。">

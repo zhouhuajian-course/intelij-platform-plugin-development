@@ -131,3 +131,31 @@ Java默认禁用断言，assert语句会被忽略，要启用断言，
 在其他项目中，可以使用Spring、JUnit等框架的Assert工具类来进行assert关键字的功能
 因为很有可能生产环境忘记开启断言
 也许可以启动前保证断言必须开启来解决忘记开启的问题
+
+## 窗口启动流程
+
+1. com.intellij.idea.Main:main()
+2. com.intellij.ide.plugins.MainRunner:start()
+3. com.intellij.idea.StartupUtil:prepareApp()
+4. com.intellij.idea.StartupUtil:startApp()
+5. getAppStarter(appStarterFuture).start(Arrays.asList(args), initUiTask);
+6. com.intellij.idea.MainImpl:start()
+
+## 主窗口
+
+com.intellij.openapi.wm.impl.IdeFrameImpl
+
+## InteliJ Community 编译 运行 
+
+https://github.com/JetBrains/intellij-community
+
+出现报错`intellij-community-idea-213.7172.25\intellij-community-idea-213.7172.25\plugins\gradle\gradle-dependency-updater\src\org\jetbrains\plugins\gradle\dsl\GradleDependencyModificator.kt:9:12
+Kotlin: Unresolved reference: android`
+
+运行getPlugins.bat，其实是拉取
+
+`call git clone git://git.jetbrains.org/idea/android.git android`
+
+`https://github.com/JetBrains/android`
+
+

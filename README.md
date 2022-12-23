@@ -158,4 +158,86 @@ Kotlin: Unresolved reference: android`
 
 `https://github.com/JetBrains/android`
 
+确保 intellij-platform和android 仓库代码版本相同
+
+主版本可能还会报错
+
+
+
+可以试试，两个版本不一样可能会有奇怪报错
+
+https://github.com/JetBrains/intellij-community/tree/idea/212.3116.43
+https://github.com/JetBrains/android/tree/idea/212.3116.43
+
+## Action注册
+
+Action ID 默认是 类名，不包括包名的类名
+
+ActionManagerImpl.registerAction()
+
+`public void registerAction(@NotNull String actionId, @NotNull AnAction action, @Nullable PluginId pluginId, @Nullable String projectType) {
+`
+```
+com.intellij.diagnostic.PluginException: ID "SearchWithBingAction" is already taken by action "必应搜索 (null)" (Plugin: 网页搜索). Action "百度搜索 (null)" cannot use the same ID 网页搜索 [Plugin: 网页搜索]
+	at com.intellij.openapi.actionSystem.impl.ActionManagerImpl.reportActionIdCollision(ActionManagerImpl.java:1316)
+	at com.intellij.openapi.actionSystem.impl.ActionManagerImpl.registerAction(ActionManagerImpl.java:1249)
+	at com.intellij.openapi.actionSystem.impl.ActionManagerImpl.registerOrReplaceActionInner(ActionManagerImpl.java:702)
+	at com.intellij.openapi.actionSystem.impl.ActionManagerImpl.processActionElement(ActionManagerImpl.java:672)
+	at com.intellij.openapi.actionSystem.impl.ActionManagerImpl.processGroupElement(ActionManagerImpl.java:830)
+	at com.intellij.openapi.actionSystem.impl.ActionManagerImpl.registerPluginActions(ActionManagerImpl.java:472)
+	at com.intellij.openapi.actionSystem.impl.ActionManagerImpl.registerActions(ActionManagerImpl.java:172)
+	at com.intellij.openapi.actionSystem.impl.ActionManagerImpl.<init>(ActionManagerImpl.java:144)
+	at com.jetbrains.rdserver.ui.actionPopupMenu.BackendActionManager.<init>(BackendActionManager.kt:16)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at com.intellij.serviceContainer.ConstructorInjectionKt.instantiateUsingPicoContainer(constructorInjection.kt:47)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateClassWithConstructorInjection(ComponentManagerImpl.kt:876)
+	at com.intellij.serviceContainer.ServiceComponentAdapter.createAndInitialize(ServiceComponentAdapter.kt:47)
+	at com.intellij.serviceContainer.ServiceComponentAdapter.doCreateInstance(ServiceComponentAdapter.kt:37)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstanceUncached(BaseComponentAdapter.kt:113)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance(BaseComponentAdapter.kt:67)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance$default(BaseComponentAdapter.kt:60)
+	at com.intellij.serviceContainer.ComponentManagerImpl.doGetService(ComponentManagerImpl.kt:595)
+	at com.intellij.serviceContainer.ComponentManagerImpl.getService(ComponentManagerImpl.kt:569)
+	at com.intellij.openapi.client.ClientAwareComponentManager.getFromSelfOrCurrentSession(ClientAwareComponentManager.kt:37)
+	at com.intellij.openapi.client.ClientAwareComponentManager.getService(ClientAwareComponentManager.kt:22)
+	at com.intellij.openapi.actionSystem.ActionManager.getInstance(ActionManager.java:30)
+	at com.intellij.openapi.wm.impl.welcomeScreen.WelcomeFrame.lambda$prepareToShow$0(WelcomeFrame.java:167)
+	at com.intellij.openapi.application.impl.ApplicationImpl$1.run(ApplicationImpl.java:263)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:668)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:665)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:665)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+```
+
+## Swing Action 和 IntelliJ AnAction
+
+similar
+
+## Swing 线程安全
+
+Swing 不是线程安全的
+
+https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/javax/swing/package-summary.html
+
+Swing's Threading Policy
+
+In general Swing is not thread safe. All Swing components and related classes, unless otherwise documented, must be accessed on the event dispatching thread.
+
+## Swing 组件
+
+一个 Swing 组件，只能放在一个容器里面，如果放到另一个容器，那么会移除和之前容器的关系
+
+https://docs.oracle.com/javase/tutorial/uiswing/components/toplevel.html
+
+Each GUI component can be contained only once. If a component is already in a container and you try to add it to another container, the component will be removed from the first container and then added to the second.
+
+
 

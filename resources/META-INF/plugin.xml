@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>a-test-id</id>
+    <id>com.company.learn</id>
     <name>a-test-name</name>
     <version>1.0</version>
     <vendor email="zhouhuajian@company.com" url="http://www.zhouhuajian.com/">HuaJian Company</vendor>
@@ -35,6 +35,9 @@
     </extensions>
 
     <actions>
+        <action class="learn.SimpleAction" text="简单Action">
+            <add-to-group group-id="EditorPopupMenu"></add-to-group>
+        </action>
         <group text="网页搜索" popup="true" class="search.SearchActionGroup">
             <add-to-group group-id="EditorPopupMenu"></add-to-group>
             <action class="search.SearchWithBing" text="必应"></action>

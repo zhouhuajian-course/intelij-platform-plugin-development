@@ -239,5 +239,122 @@ https://docs.oracle.com/javase/tutorial/uiswing/components/toplevel.html
 
 Each GUI component can be contained only once. If a component is already in a container and you try to add it to another container, the component will be removed from the first container and then added to the second.
 
+## 线程调用栈 ActionUpdater
 
+IntelliJ Platform 的动作系统，是Swing动作系统的封装
 
+```
+update:12, WebSearchActionGroup (web.search)
+lambda$performDumbAwareUpdate$0:131, ActionUtil (com.intellij.openapi.actionSystem.ex)
+run:-1, 44191008 (com.intellij.openapi.actionSystem.ex.ActionUtil$$Lambda$1166)
+performDumbAwareUpdate:145, ActionUtil (com.intellij.openapi.actionSystem.ex)
+doUpdate:637, ActionUpdater (com.intellij.openapi.actionSystem.impl)
+lambda$updateActionReal$7:129, ActionUpdater (com.intellij.openapi.actionSystem.impl)
+get:-1, 1502984377 (com.intellij.openapi.actionSystem.impl.ActionUpdater$$Lambda$1334)
+lambda$callAction$9:200, ActionUpdater (com.intellij.openapi.actionSystem.impl)
+compute:-1, 1625569253 (com.intellij.openapi.actionSystem.impl.ActionUpdater$$Lambda$1340)
+lambda$runProcess$0:57, ProgressManager (com.intellij.openapi.progress)
+run:-1, 1737974555 (com.intellij.openapi.progress.ProgressManager$$Lambda$691)
+lambda$runProcess$2:188, CoreProgressManager (com.intellij.openapi.progress.impl)
+run:-1, 2093075961 (com.intellij.openapi.progress.impl.CoreProgressManager$$Lambda$621)
+lambda$executeProcessUnderProgress$12:624, CoreProgressManager (com.intellij.openapi.progress.impl)
+compute:-1, 509654105 (com.intellij.openapi.progress.impl.CoreProgressManager$$Lambda$574)
+registerIndicatorAndRun:698, CoreProgressManager (com.intellij.openapi.progress.impl)
+computeUnderProgress:646, CoreProgressManager (com.intellij.openapi.progress.impl)
+executeProcessUnderProgress:623, CoreProgressManager (com.intellij.openapi.progress.impl)
+executeProcessUnderProgress:66, ProgressManagerImpl (com.intellij.openapi.progress.impl)
+runProcess:175, CoreProgressManager (com.intellij.openapi.progress.impl)
+runProcess:57, ProgressManager (com.intellij.openapi.progress)
+lambda$callAction$10:198, ActionUpdater (com.intellij.openapi.actionSystem.impl)
+get:-1, 1170253325 (com.intellij.openapi.actionSystem.impl.ActionUpdater$$Lambda$1338)
+lambda$computeOnEdt$0:45, ActionUpdateEdtExecutor (com.intellij.openapi.actionSystem.impl)
+run:-1, 1127265614 (com.intellij.openapi.actionSystem.impl.ActionUpdateEdtExecutor$$Lambda$1339)
+lambda$expandActionGroupFastTrack$3:256, Utils (com.intellij.openapi.actionSystem.impl)
+run:-1, 1428078330 (com.intellij.openapi.actionSystem.impl.Utils$$Lambda$1329)
+runLoopAndWaitForFuture:582, Utils (com.intellij.openapi.actionSystem.impl)
+expandActionGroupFastTrack:254, Utils (com.intellij.openapi.actionSystem.impl)
+expandActionGroupImpl:171, Utils (com.intellij.openapi.actionSystem.impl)
+fillMenu:278, Utils (com.intellij.openapi.actionSystem.impl)
+lambda$updateChildren$1:181, ActionPopupMenuImpl$MyMenu (com.intellij.openapi.actionSystem.impl)
+run:-1, 1675447201 (com.intellij.openapi.actionSystem.impl.ActionPopupMenuImpl$MyMenu$$Lambda$4349)
+run:59, TimeoutUtil (com.intellij.util)
+lambda$updateChildren$3:180, ActionPopupMenuImpl$MyMenu (com.intellij.openapi.actionSystem.impl)
+run:-1, 1537787313 (com.intellij.openapi.actionSystem.impl.ActionPopupMenuImpl$MyMenu$$Lambda$4347)
+performWithRetries:620, Utils (com.intellij.openapi.actionSystem.impl)
+updateChildren:179, ActionPopupMenuImpl$MyMenu (com.intellij.openapi.actionSystem.impl)
+show:139, ActionPopupMenuImpl$MyMenu (com.intellij.openapi.actionSystem.impl)
+handlePopup:36, ContextMenuPopupHandler (com.intellij.openapi.editor.impl)
+invokePopupIfNeeded:4936, EditorImpl (com.intellij.openapi.editor.impl)
+runMouseReleasedCommand:3933, EditorImpl$MyMouseAdapter (com.intellij.openapi.editor.impl)
+mouseReleased:3825, EditorImpl$MyMouseAdapter (com.intellij.openapi.editor.impl)
+processMouseEvent:6654, Component (java.awt)
+processMouseEvent:3345, JComponent (javax.swing)
+processEvent:6419, Component (java.awt)
+processEvent:2263, Container (java.awt)
+dispatchEventImpl:5029, Component (java.awt)
+dispatchEventImpl:2321, Container (java.awt)
+dispatchEvent:4861, Component (java.awt)
+retargetMouseEvent:4918, LightweightDispatcher (java.awt)
+processMouseEvent:4547, LightweightDispatcher (java.awt)
+dispatchEvent:4488, LightweightDispatcher (java.awt)
+dispatchEventImpl:2307, Container (java.awt)
+dispatchEventImpl:2790, Window (java.awt)
+dispatchEvent:4861, Component (java.awt)
+dispatchEventImpl:778, EventQueue (java.awt)
+run:727, EventQueue$4 (java.awt)
+run:721, EventQueue$4 (java.awt)
+doPrivileged:-1, AccessController (java.security)
+doIntersectionPrivilege:85, ProtectionDomain$JavaSecurityAccessImpl (java.security)
+doIntersectionPrivilege:95, ProtectionDomain$JavaSecurityAccessImpl (java.security)
+run:751, EventQueue$5 (java.awt)
+run:749, EventQueue$5 (java.awt)
+doPrivileged:-1, AccessController (java.security)
+doIntersectionPrivilege:85, ProtectionDomain$JavaSecurityAccessImpl (java.security)
+dispatchEvent:748, EventQueue (java.awt)
+defaultDispatchEvent:891, IdeEventQueue (com.intellij.ide)
+dispatchMouseEvent:820, IdeEventQueue (com.intellij.ide)
+_dispatchEvent:757, IdeEventQueue (com.intellij.ide)
+lambda$dispatchEvent$6:447, IdeEventQueue (com.intellij.ide)
+compute:-1, 1281164445 (com.intellij.ide.IdeEventQueue$$Lambda$384)
+computePrioritized:818, CoreProgressManager (com.intellij.openapi.progress.impl)
+lambda$dispatchEvent$7:446, IdeEventQueue (com.intellij.ide)
+run:-1, 60978485 (com.intellij.ide.IdeEventQueue$$Lambda$379)
+runIntendedWriteActionOnCurrentThread:805, ApplicationImpl (com.intellij.openapi.application.impl)
+dispatchEvent:498, IdeEventQueue (com.intellij.ide)
+pumpOneEventForFilters:203, EventDispatchThread (java.awt)
+pumpEventsForFilter:124, EventDispatchThread (java.awt)
+pumpEventsForHierarchy:113, EventDispatchThread (java.awt)
+pumpEvents:109, EventDispatchThread (java.awt)
+pumpEvents:101, EventDispatchThread (java.awt)
+run:90, EventDispatchThread (java.awt)
+```
+
+## 修改动作状态 Action State 类似Swing
+
+```text
+An action's method AnAction.update() is called by the IntelliJ Platform framework to update an action state. The state (enabled, visible) of an action determines whether the action is available in the UI. An object of the AnActionEvent type is passed to this method and contains information about the current context for the action. Actions are made available by changing state in the Presentation object associated with the event context. As explained in Overriding the AnAction.update() Method, it is vital update() methods execute quickly and return execution to platform.
+```
+
+Presentation 表示当前这一次展示的状态，有点像临时状态或者是状态拷贝
+AnAction的myTemplatePresentation的对象ID始终没变，
+但AnActionEvent的myPresentation的对象ID始终再变，而且跟上面的ID不一样，不是同一个对象
+
+The default Presentation object is a set of descriptive information about a menu or toolbar action. 
+
+## Project & Editor 都为 null 的情况
+
+![](resources/readme/project_editor_null.png)
+
+## Editor 为 null 的情况
+
+![](resources/readme/editor_null.png)
+
+## IDEA Welcome Screen 欢迎界面
+
+![](resources/readme/welcome_screen.png)
+
+很多欢迎界面的ActionGroup包含WelcomeScreen
+
+## Presentation - Copy
+
+A new Presentation gets created for every place where the action appears. Therefore, the same action can have a different text or icon when it appears in different places of the user interface. Different presentations for the action are created by copying the Presentation returned by the AnAction.getTemplatePresentation() method.

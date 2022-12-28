@@ -37,70 +37,87 @@
     <actions>
         <action class="learn.SimpleAction" text="简单Action">
             <add-to-group group-id="EditorPopupMenu"></add-to-group>
+            <add-to-group group-id="ToolbarRunGroup"></add-to-group>
+            <add-to-group group-id="WelcomeScreen.Options"></add-to-group>
         </action>
-        <group text="网页搜索" popup="true" class="search.SearchActionGroup">
-            <add-to-group group-id="EditorPopupMenu"></add-to-group>
-            <action class="search.SearchWithBing" text="必应"></action>
-            <action class="search.SearchWithBaidu" text="百度"></action>
-        </group>
-        <group
-                id="org.intellij.sdk.action.GroupedActions"
-                text="Static Grouped Actions"
-                popup="true">
-            <add-to-group
-                    group-id="ToolsMenu"
-                    anchor="last"/>
-            <action
-                    class="test.TestAction"
-                    id="org.intellij.sdk.action.GroupPopDialogAction"
-                    text="A Group Action"
-                    description="SDK static grouped action example">
-            </action>
-        </group>
 
 
-        <group id="TestMenu" text="_TestMenu" description="xxx">
-            <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="TestAction1" class="test.TestAction" text="测试菜单" description="xxx"/>
-        </group>
-        <group id="TestSubMenu1" text="_TestSubMenu" description="xxx">
-            <add-to-group group-id="TestMenu" anchor="last"/>
-            <action id="TestSubAction1" class="test.TestAction" text="测试子菜单" description="xxx"/>
-            <action id="TestSubAction2" class="test.TestAction" text="测试子菜单2" description="xxx"/>
-        </group>
-        <group popup="true" class="test.TestActionGroup" id="test.TestActionGroup" text="在Web中搜索..." icon="AllIcons.Actions.Search" description="Quick search">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-        </group>
-        <action id="dictionary"
-                class="dictionary.TranslateAction"
-                text="翻译" description="可以翻译选中的单词。">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-        </action>
-        <action id="SearchWithBing"
-                class="search.SearchWithBing"
-                text="Search With Bing"
-                description="Search With Bing">
-            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
-        </action>
-        <action id="WebTranslateAction"
-                class="translate.WebTranslateAction"
-                text="网页翻译"
-                description="在编辑器中选中文本，右键点击网页翻译可以弹出浏览器进行单词翻译。">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-        </action>
-        <action id="TranslateAction"
-                class="translate.TranslateAction"
-                text="翻译"
-                description="在编辑器中，选中文本，右键点击翻译，可以弹出工具栏进行翻译。">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-        </action>
-        <action id="ReplaceAction"
-                class="replace.ReplaceAction"
-                text="Editor Replace Text"
-                description="替换，如果不满足条件，不会出现这个菜单项"
-                icon="/replace/sdk_16.svg">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-        </action>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--        <group text="网页搜索" popup="true" class="search.SearchActionGroup">-->
+<!--            <add-to-group group-id="EditorPopupMenu"></add-to-group>-->
+<!--            <action class="search.SearchWithBing" text="必应"></action>-->
+<!--            <action class="search.SearchWithBaidu" text="百度"></action>-->
+<!--        </group>-->
+<!--        <group-->
+<!--                id="org.intellij.sdk.action.GroupedActions"-->
+<!--                text="Static Grouped Actions"-->
+<!--                popup="true">-->
+<!--            <add-to-group-->
+<!--                    group-id="ToolsMenu"-->
+<!--                    anchor="last"/>-->
+<!--            <action-->
+<!--                    class="test.TestAction"-->
+<!--                    id="org.intellij.sdk.action.GroupPopDialogAction"-->
+<!--                    text="A Group Action"-->
+<!--                    description="SDK static grouped action example">-->
+<!--            </action>-->
+<!--        </group>-->
+
+
+<!--        <group id="TestMenu" text="_TestMenu" description="xxx">-->
+<!--            <add-to-group group-id="MainMenu" anchor="last"/>-->
+<!--            <action id="TestAction1" class="test.TestAction" text="测试菜单" description="xxx"/>-->
+<!--        </group>-->
+<!--        <group id="TestSubMenu1" text="_TestSubMenu" description="xxx">-->
+<!--            <add-to-group group-id="TestMenu" anchor="last"/>-->
+<!--            <action id="TestSubAction1" class="test.TestAction" text="测试子菜单" description="xxx"/>-->
+<!--            <action id="TestSubAction2" class="test.TestAction" text="测试子菜单2" description="xxx"/>-->
+<!--        </group>-->
+<!--        <group popup="true" class="test.TestActionGroup" id="test.TestActionGroup" text="在Web中搜索..." icon="AllIcons.Actions.Search" description="Quick search">-->
+<!--            <add-to-group group-id="EditorPopupMenu" anchor="first"/>-->
+<!--        </group>-->
+<!--        <action id="dictionary"-->
+<!--                class="dictionary.TranslateAction"-->
+<!--                text="翻译" description="可以翻译选中的单词。">-->
+<!--            <add-to-group group-id="EditorPopupMenu" anchor="first"/>-->
+<!--        </action>-->
+<!--        <action id="SearchWithBing"-->
+<!--                class="search.SearchWithBing"-->
+<!--                text="Search With Bing"-->
+<!--                description="Search With Bing">-->
+<!--            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>-->
+<!--        </action>-->
+<!--        <action id="WebTranslateAction"-->
+<!--                class="translate.WebTranslateAction"-->
+<!--                text="网页翻译"-->
+<!--                description="在编辑器中选中文本，右键点击网页翻译可以弹出浏览器进行单词翻译。">-->
+<!--            <add-to-group group-id="EditorPopupMenu" anchor="first"/>-->
+<!--        </action>-->
+<!--        <action id="TranslateAction"-->
+<!--                class="translate.TranslateAction"-->
+<!--                text="翻译"-->
+<!--                description="在编辑器中，选中文本，右键点击翻译，可以弹出工具栏进行翻译。">-->
+<!--            <add-to-group group-id="EditorPopupMenu" anchor="first"/>-->
+<!--        </action>-->
+<!--        <action id="ReplaceAction"-->
+<!--                class="replace.ReplaceAction"-->
+<!--                text="Editor Replace Text"-->
+<!--                description="替换，如果不满足条件，不会出现这个菜单项"-->
+<!--                icon="/replace/sdk_16.svg">-->
+<!--            <add-to-group group-id="EditorPopupMenu" anchor="first"/>-->
+<!--        </action>-->
     </actions>
 
 </idea-plugin>

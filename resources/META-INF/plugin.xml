@@ -35,10 +35,11 @@
     </extensions>
 
     <actions>
-        <action class="learn.SimpleAction" text="简单Action">
+        <action class="learn.SimpleAction" text="简单Action" description="Hint Text 提示文本">
             <add-to-group group-id="EditorPopupMenu"></add-to-group>
             <add-to-group group-id="ToolbarRunGroup"></add-to-group>
             <add-to-group group-id="WelcomeScreen.Options"></add-to-group>
+            <override-text place="EditorPopup" text="弹出式菜单的Action"/>
         </action>
 
 

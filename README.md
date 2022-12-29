@@ -358,3 +358,9 @@ The default Presentation object is a set of descriptive information about a menu
 ## Presentation - Copy
 
 A new Presentation gets created for every place where the action appears. Therefore, the same action can have a different text or icon when it appears in different places of the user interface. Different presentations for the action are created by copying the Presentation returned by the AnAction.getTemplatePresentation() method.
+
+## Action Document
+
+![](resources/readme/action_document_1.png)
+
+![](resources/readme/action_document_2.png)

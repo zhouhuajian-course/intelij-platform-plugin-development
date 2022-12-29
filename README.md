@@ -364,3 +364,9 @@ A new Presentation gets created for every place where the action appears. Theref
 ![](resources/readme/action_document_1.png)
 
 ![](resources/readme/action_document_2.png)
+
+## Static/Dynamic ActionGroup
+
+![](resources/readme/static_action_group.png)
+
+![](resources/readme/dynamic_action_group.png)

@@ -34,13 +34,42 @@
                     factoryClass="translate.TranslateToolWindowFactory"/>
     </extensions>
 
+
+
     <actions>
+        <group id="actionGroup.StaticActionGroup"
+               class="actionGroup.StaticActionGroup"
+               text="静态ActionGroup"
+               popup="true">
+            <add-to-group group-id="ToolsMenu"></add-to-group>
+            <action class="actionGroup.SimpleAction"></action>
+        </group>
+
+        <group id="actionGroup.DynamicActionGroup"
+               class="actionGroup.DynamicActionGroup"
+               text="动态ActionGroup"
+               popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="actionGroup.StaticActionGroup"></add-to-group>
+        </group>
+
+
+
+
+
+
+
+
+
+
+
         <action class="learn.SimpleAction" text="简单Action" description="Hint Text 提示文本">
             <add-to-group group-id="EditorPopupMenu"></add-to-group>
             <add-to-group group-id="ToolbarRunGroup"></add-to-group>
             <add-to-group group-id="WelcomeScreen.Options"></add-to-group>
             <override-text place="EditorPopup" text="弹出式菜单的Action"/>
         </action>
+
+
 
 
 

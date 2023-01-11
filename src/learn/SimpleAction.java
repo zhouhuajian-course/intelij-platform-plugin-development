@@ -12,6 +12,7 @@ public class SimpleAction extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent event) {
         System.out.println(event.getData(CommonDataKeys.PROJECT));
+        System.out.println(event.getRequiredData(CommonDataKeys.PROJECT));
         System.out.println(event.getData(CommonDataKeys.EDITOR));
         System.out.println("Simple Action!");
         // Using the event, create and show a dialog

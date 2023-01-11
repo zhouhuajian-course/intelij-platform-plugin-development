@@ -370,3 +370,11 @@ A new Presentation gets created for every place where the action appears. Theref
 ![](resources/readme/static_action_group.png)
 
 ![](resources/readme/dynamic_action_group.png)
+
+## UI Tools - UI Inspector 界面检查工具
+
+https://plugins.jetbrains.com/docs/intellij/internal-ui-inspector.html
+
+![ui_inspector_01.png](resources/readme/ui_inspector_01.png)
+
+![ui_inspector_02.png](resources/readme/ui_inspector_02.png)

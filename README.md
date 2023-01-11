@@ -378,3 +378,35 @@ https://plugins.jetbrains.com/docs/intellij/internal-ui-inspector.html
 ![ui_inspector_01.png](resources/readme/ui_inspector_01.png)
 
 ![ui_inspector_02.png](resources/readme/ui_inspector_02.png)
+
+## ToolWindow 
+
+工具窗口 的Tab
+
+并没有使用JTabbedPanel，而是使用简单的JPanel进行实现Tab的切换效果。
+
+```java
+    public ContentImpl(JComponent component, @Nullable @Nls(capitalization = Nls.Capitalization.Title) String displayName, boolean isPinnable) {
+        myComponent = component;
+        myDisplayName = displayName;
+        myPinnable = isPinnable;  // isPinnable 是否可以固定住该内容
+    }
+    
+    
+```
+
+![pin_or_unpin_a_tab.png](resources/readme/pin_or_unpin_a_tab.png)
+
+https://www.jetbrains.com/help/idea/using-code-editor.html#pin-or-unpin-a-tab
+
+Pin or unpin a tab
+
+```text
+You can pin an active tab in the editor so that it will stay open when the tab limit is reached or when you use the Close Other Tabs command.
+
+To pin or unpin an active tab, right-click it and select Pin Tab or Unpin Tab from the context menu.
+
+To close all tabs, but the pinned ones, right-click any tab and select Close All but Pinned.
+
+To assign a keyboard shortcut for the Pin Tab action, in the Settings/Preferences dialog (Ctrl+Alt+S), go to Keymap, find the Pin Active Tab action, right-click it, select Add Keyboard Shortcut, and press the key combination you want to use.
+```

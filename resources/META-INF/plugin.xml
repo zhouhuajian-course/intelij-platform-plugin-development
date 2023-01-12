@@ -32,6 +32,12 @@
                     icon="/translate/translate.svg"
                     anchor="right"
                     factoryClass="translate.TranslateToolWindowFactory"/>
+        <toolWindow canCloseContents="true"
+                    id="在线词典"
+                    icon="AllIcons.Actions.Find"
+                    anchor="right"
+                    factoryClass="online.dictionary.OnlineDictionaryToolWindowFactory"/>
+
     </extensions>
 
 

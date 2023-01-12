@@ -410,3 +410,45 @@ To close all tabs, but the pinned ones, right-click any tab and select Close All
 
 To assign a keyboard shortcut for the Pin Tab action, in the Settings/Preferences dialog (Ctrl+Alt+S), go to Keymap, find the Pin Active Tab action, right-click it, select Add Keyboard Shortcut, and press the key combination you want to use.
 ```
+
+```text
+com.intellij.diagnostic.PluginException: online.dictionary.OnlineDictionaryToolWindowFactory PluginClassLoader[PluginDescriptor(name=a-test-name, id=com.company.learn, path=C:\Users\zhouh\AppData\Local\JetBrains\IntelliJIdea2020.3\plugins-sandbox\plugins\intellij-platform-plugin-development, version=1.0)] com.intellij.ide.plugins.cl.PluginClassLoader@60391fae [Plugin: com.company.learn]
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateExtensionWithPicoContainerOnlyIfNeeded(ComponentManagerImpl.kt:750)
+	at com.intellij.openapi.wm.ToolWindowEP.getToolWindowFactory(ToolWindowEP.java:121)
+	at com.intellij.openapi.wm.impl.ToolWindowManagerImpl$$special$$inlined$processDescriptors$2.accept(ToolWindowManagerImpl.kt:2118)
+	at com.intellij.openapi.wm.impl.ToolWindowManagerImpl$$special$$inlined$processDescriptors$2.accept(ToolWindowManagerImpl.kt:90)
+	at com.intellij.openapi.extensions.impl.ExtensionPointImpl.processWithPluginDescriptor(ExtensionPointImpl.java:296)
+	at com.intellij.openapi.extensions.ExtensionPointName.processWithPluginDescriptor(ExtensionPointName.java:158)
+	at com.intellij.openapi.wm.impl.ToolWindowManagerImpl.<init>(ToolWindowManagerImpl.kt:2161)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at com.intellij.serviceContainer.ConstructorInjectionKt.instantiateUsingPicoContainer(constructorInjection.kt:52)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateClassWithConstructorInjection(ComponentManagerImpl.kt:733)
+	at com.intellij.serviceContainer.ServiceComponentAdapter.createAndInitialize(ServiceComponentAdapter.kt:49)
+	at com.intellij.serviceContainer.ServiceComponentAdapter.doCreateInstance(ServiceComponentAdapter.kt:37)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstanceUncached(BaseComponentAdapter.kt:113)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance(BaseComponentAdapter.kt:67)
+	at com.intellij.serviceContainer.BaseComponentAdapter.getInstance$default(BaseComponentAdapter.kt:60)
+	at com.intellij.serviceContainer.ComponentManagerImpl$preloadServices$future$1.run(ComponentManagerImpl.kt:890)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+	at com.intellij.util.concurrency.BoundedTaskExecutor.doRun(BoundedTaskExecutor.java:216)
+	at com.intellij.util.concurrency.BoundedTaskExecutor.access$200(BoundedTaskExecutor.java:27)
+	at com.intellij.util.concurrency.BoundedTaskExecutor$1.execute(BoundedTaskExecutor.java:195)
+	at com.intellij.util.concurrency.BoundedTaskExecutor$1.run(BoundedTaskExecutor.java:187)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:668)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:665)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:665)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.ClassNotFoundException: online.dictionary.OnlineDictionaryToolWindowFactory PluginClassLoader[PluginDescriptor(name=a-test-name, id=com.company.learn, path=C:\Users\zhouh\AppData\Local\JetBrains\IntelliJIdea2020.3\plugins-sandbox\plugins\intellij-platform-plugin-development, version=1.0)] com.intellij.ide.plugins.cl.PluginClassLoader@60391fae
+	at com.intellij.ide.plugins.cl.PluginClassLoader.loadClass(PluginClassLoader.java:129)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:398)
+	at com.intellij.serviceContainer.ComponentManagerImpl.instantiateExtensionWithPicoContainerOnlyIfNeeded(ComponentManagerImpl.kt:747)
+	... 30 more
+```
